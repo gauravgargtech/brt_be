@@ -1,11 +1,27 @@
-var express = require("express");
+const express = require("express");
+const path = require("path");
+const app = express();
+const config = require("./config/keys");
 
+const referralRouter = require("./routes/referral");
 
-var app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.use("/referral", indexRouter);
+app.use("/referral", referralRouter);
 
-// error handler
-app.use(function (err, req, res, next) {});
+app.use("/", (req, res) => {
+  return res.status(500).json({
+    success: false,
+    error: "Path is not defined",
+  });
+});
 
-app.listen(4000);
+app.use((error, req, res, next) => {
+  return res.status(500).json({
+    success: false,
+    error: error.toString(),
+  });
+});
+
+app.listen(config.port);
