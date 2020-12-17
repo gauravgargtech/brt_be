@@ -7,4 +7,5 @@ module.exports = {
     database: process.env.mysql_database,
     port: process.env.mysql_port,
   },
+  firebaseDbUrl: process.env.firebaseDbUrl,
 };

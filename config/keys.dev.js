@@ -7,4 +7,5 @@ module.exports = {
     database: "rt",
     port: 3306,
   },
+  firebaseDbUrl: "https://bartguy.firebaseio.com",
 };

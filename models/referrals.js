@@ -101,6 +101,15 @@ module.exports = (sequelize) => {
       comment: null,
       field: "country",
     },
+    image_url: {
+      type: DataTypes.STRING(245),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "image_url",
+    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: true,
